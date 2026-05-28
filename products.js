@@ -6,16 +6,6 @@ document.getElementById(
   'productList'
 )
 
-const searchInput =
-document.getElementById(
-  'searchInput'
-)
-
-let allProducts = []
-
-
-// GET PRODUCTS
-
 async function getProducts(){
 
   const {
@@ -31,6 +21,65 @@ async function getProducts(){
 
   }else{
 
+    productList.innerHTML = ''
+
+    data.forEach(product=>{
+
+      productList.innerHTML += `
+      
+      <div class="product-card">
+
+        <img src="${
+          product.image
+        }">
+
+        <h3>
+          ${
+            product.name
+          }
+        </h3>
+
+        <p>
+          Rp ${
+            product.price
+          }
+        </p>
+
+        <button
+        class="btn primary">
+
+          Buy Now
+
+        </button>
+
+      </div>
+
+      `
+    })
+
+  }
+
+}
+
+getProducts()
+const searchInput =
+document.getElementById(
+  'searchInput'
+)
+
+let allProducts = []
+
+async function getProducts(){
+
+  const {
+    data,
+    error
+  } = await supabase
+  .from('products')
+  .select('*')
+
+  if(!error){
+
     allProducts = data
 
     renderProducts(data)
@@ -38,9 +87,6 @@ async function getProducts(){
   }
 
 }
-
-
-// RENDER PRODUCTS
 
 function renderProducts(data){
 
@@ -52,8 +98,7 @@ function renderProducts(data){
 
     <div class="product-card">
 
-      <img
-      src="${product.image}">
+      <img src="${product.image}">
 
       <div class="product-content">
 
@@ -75,34 +120,17 @@ function renderProducts(data){
 
         </p>
 
-        <div class="product-buttons">
+        <button
+onclick='addToCart(
+"${product.name}",
+"${product.price}",
+"${product.image}"
+)'
+class="btn primary">
 
-          <button
-          onclick='addToCart(
-          "${product.name}",
-          "${product.price}",
-          "${product.image}"
-          )'
-          class="btn primary full-btn">
+Buy Now
 
-            Add To Cart
-
-          </button>
-
-          <button
-          onclick='addWishlist({
-          name:`${product.name}`,
-          price:`${product.price}`,
-          image:`${product.image}`
-          })'
-          class="icon-btn">
-
-            <i class="fa-solid fa-heart"></i>
-
-          </button>
-
-        </div>
-
+</button>
       </div>
 
     </div>
@@ -112,90 +140,25 @@ function renderProducts(data){
 
 }
 
+searchInput.addEventListener(
+  'keyup',
+  ()=>{
 
-// SEARCH PRODUCT
+    const value =
+    searchInput.value.toLowerCase()
 
-if(searchInput){
+    const filtered =
+    allProducts.filter(product=>
 
-  searchInput.addEventListener(
-    'keyup',
-    ()=>{
-
-      const value =
-      searchInput.value
+      product.name
       .toLowerCase()
+      .includes(value)
 
-      const filtered =
-      allProducts.filter(product=>
-
-        product.name
-        .toLowerCase()
-        .includes(value)
-
-      )
-
-      renderProducts(filtered)
-
-    }
-  )
-
-}
-
-
-// ADD TO CART
-
-window.addToCart =
-function(name,price,image){
-
-  let cart =
-  JSON.parse(
-    localStorage.getItem('cart')
-  ) || []
-
-  cart.push({
-    name,
-    price,
-    image
-  })
-
-  localStorage.setItem(
-    'cart',
-    JSON.stringify(cart)
-  )
-
-  showNotification(
-    'Added to cart 🔥'
-  )
-
-}
-
-
-// WISHLIST
-
-window.addWishlist =
-function(product){
-
-  let wishlist =
-  JSON.parse(
-    localStorage.getItem(
-      'wishlist'
     )
-  ) || []
 
-  wishlist.push(product)
+    renderProducts(filtered)
 
-  localStorage.setItem(
-    'wishlist',
-    JSON.stringify(wishlist)
-  )
-
-  showNotification(
-    'Added to wishlist ❤️'
-  )
-
-}
-
-
-// START
+  }
+)
 
 getProducts()
