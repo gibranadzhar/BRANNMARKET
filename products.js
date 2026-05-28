@@ -14,6 +14,9 @@ async function getProducts(){
   } = await supabase
   .from('products')
   .select('*')
+  .order('id',{
+    ascending:false
+  })
 
   if(error){
 
@@ -26,31 +29,34 @@ async function getProducts(){
     data.forEach(product=>{
 
       productList.innerHTML += `
-      
+
       <div class="product-card">
 
-        <img src="${
-          product.image
-        }">
+        <img
+        src="${product.image}">
 
-        <h3>
-          ${
-            product.name
-          }
-        </h3>
+        <div class="product-content">
 
-        <p>
-          Rp ${
-            product.price
-          }
-        </p>
+          <h3>
 
-        <button
-        class="btn primary">
+            ${product.name}
 
-          Buy Now
+          </h3>
 
-        </button>
+          <p class="price">
+
+            Rp ${product.price}
+
+          </p>
+
+          <button
+          class="btn primary full-btn">
+
+            Add To Cart
+
+          </button>
+
+        </div>
 
       </div>
 
@@ -60,105 +66,5 @@ async function getProducts(){
   }
 
 }
-
-getProducts()
-const searchInput =
-document.getElementById(
-  'searchInput'
-)
-
-let allProducts = []
-
-async function getProducts(){
-
-  const {
-    data,
-    error
-  } = await supabase
-  .from('products')
-  .select('*')
-
-  if(!error){
-
-    allProducts = data
-
-    renderProducts(data)
-
-  }
-
-}
-
-function renderProducts(data){
-
-  productList.innerHTML = ''
-
-  data.forEach(product=>{
-
-    productList.innerHTML += `
-
-    <div class="product-card">
-
-      <img src="${product.image}">
-
-      <div class="product-content">
-
-        <span class="category">
-
-          Product
-
-        </span>
-
-        <h3>
-
-          ${product.name}
-
-        </h3>
-
-        <p class="price">
-
-          Rp ${product.price}
-
-        </p>
-
-        <button
-onclick='addToCart(
-"${product.name}",
-"${product.price}",
-"${product.image}"
-)'
-class="btn primary">
-
-Buy Now
-
-</button>
-      </div>
-
-    </div>
-
-    `
-  })
-
-}
-
-searchInput.addEventListener(
-  'keyup',
-  ()=>{
-
-    const value =
-    searchInput.value.toLowerCase()
-
-    const filtered =
-    allProducts.filter(product=>
-
-      product.name
-      .toLowerCase()
-      .includes(value)
-
-    )
-
-    renderProducts(filtered)
-
-  }
-)
 
 getProducts()
