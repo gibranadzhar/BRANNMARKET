@@ -821,3 +821,45 @@ footer p{
 
   color:#cbd5e1;
 }
+/* LOADER */
+
+#loader{
+  position:fixed;
+
+  inset:0;
+
+  background:#040816;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  z-index:99999;
+
+  transition:0.5s;
+}
+
+.spinner{
+  width:65px;
+  height:65px;
+
+  border-radius:50%;
+
+  border:
+  5px solid rgba(255,255,255,0.1);
+
+  border-top:
+  5px solid #7c3aed;
+
+  animation:
+  spin 1s linear infinite;
+}
+
+@keyframes spin{
+
+  to{
+    transform:
+    rotate(360deg);
+  }
+
+}
