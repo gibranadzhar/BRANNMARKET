@@ -46,11 +46,16 @@ async function getProducts(){
         </p>
 
         <button
-        class="btn primary">
+onclick='addToCart(
+"${product.name}",
+"${product.price}",
+"${product.image}"
+)'
+class="btn primary">
 
-          Buy Now
+Buy Now
 
-        </button>
+</button>
 
       </div>
 
