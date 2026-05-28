@@ -22,35 +22,39 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
     <form
     class="auth-form"
-    id="uploadForm">
+<form id="uploadForm">
 
-      <h1>Upload Product</h1>
+  <input
+  type="text"
+  id="name"
+  placeholder="Nama produk"
+  required>
 
-      <input
-      type="text"
-      id="productName"
-      placeholder="Product Name"
-      required>
+  <input
+  type="number"
+  id="price"
+  placeholder="Harga produk"
+  required>
 
-      <input
-      type="number"
-      id="productPrice"
-      placeholder="Price"
-      required>
+  <input
+  type="text"
+  id="image"
+  placeholder="Link gambar"
+  required>
 
-      <input
-      type="text"
-      id="productImage"
-      placeholder="Image URL"
-      required>
+  <button
+  class="btn primary">
 
-      <button
-      type="submit"
-      class="btn primary">
+    Upload Product
 
-        Upload Product
+  </button>
 
-      </button>
+</form>
+
+<script
+type="module"
+src="seller.js">
+</script>
 
     </form>
 
