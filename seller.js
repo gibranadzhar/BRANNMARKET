@@ -28,6 +28,7 @@ uploadForm.addEventListener(
     ).value
 
     const {
+      data,
       error
     } = await supabase
     .from('products')
@@ -38,13 +39,14 @@ uploadForm.addEventListener(
         image
       }
     ])
+    .select()
 
     if(error){
 
       console.log(error)
 
       alert(
-        'Upload gagal'
+        'Upload gagal ❌'
       )
 
     }else{
@@ -53,7 +55,7 @@ uploadForm.addEventListener(
         'Produk berhasil upload 🔥'
       )
 
-      location.href =
+      window.location.href =
       'products.html'
 
     }
