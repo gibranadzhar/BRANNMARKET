@@ -1,10 +1,12 @@
 import { supabase }
 from './supabase.js'
 
-const productList =
+const searchInput =
 document.getElementById(
-  'productList'
+  'searchInput'
 )
+
+let allProducts = []
 
 async function getProducts(){
 
@@ -15,56 +17,89 @@ async function getProducts(){
   .from('products')
   .select('*')
 
-  if(error){
+  if(!error){
 
-    console.log(error)
+    allProducts = data
 
-  }else{
-
-    productList.innerHTML = ''
-
-    data.forEach(product=>{
-
-      productList.innerHTML += `
-      
-      <div class="product-card">
-
-        <img src="${
-          product.image
-        }">
-
-        <h3>
-          ${
-            product.name
-          }
-        </h3>
-
-        <p>
-          Rp ${
-            product.price
-          }
-        </p>
-
-        <button
-onclick='addToCart(
-"${product.name}",
-"${product.price}",
-"${product.image}"
-)'
-class="btn primary">
-
-Buy Now
-
-</button>
-
-      </div>
-
-      `
-    })
+    renderProducts(data)
 
   }
 
 }
+
+function renderProducts(data){
+
+  productList.innerHTML = ''
+
+  data.forEach(product=>{
+
+    productList.innerHTML += `
+
+    <div class="product-card">
+
+      <img src="${product.image}">
+
+      <div class="product-content">
+
+        <span class="category">
+
+          Product
+
+        </span>
+
+        <h3>
+
+          ${product.name}
+
+        </h3>
+
+        <p class="price">
+
+          Rp ${product.price}
+
+        </p>
+
+        <button
+        onclick='addToCart(
+        "${product.name}",
+        "${product.price}",
+        "${product.image}"
+        )'
+        class="btn primary full-btn">
+
+          Add To Cart
+
+        </button>
+
+      </div>
+
+    </div>
+
+    `
+  })
+
+}
+
+searchInput.addEventListener(
+  'keyup',
+  ()=>{
+
+    const value =
+    searchInput.value.toLowerCase()
+
+    const filtered =
+    allProducts.filter(product=>
+
+      product.name
+      .toLowerCase()
+      .includes(value)
+
+    )
+
+    renderProducts(filtered)
+
+  }
+)
 
 getProducts()
 
