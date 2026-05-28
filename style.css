@@ -863,3 +863,46 @@ footer p{
   }
 
 }
+
+/* REVIEWS */
+
+.reviews{
+  padding:0 8% 100px;
+}
+
+.review-grid{
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(320px,1fr));
+
+  gap:25px;
+}
+
+.review-card{
+  padding:30px;
+
+  border-radius:28px;
+
+  background:
+  rgba(255,255,255,0.04);
+
+  border:
+  1px solid rgba(255,255,255,0.05);
+}
+
+.review-top{
+  display:flex;
+  align-items:center;
+
+  gap:15px;
+
+  margin-bottom:20px;
+}
+
+.review-top img{
+  width:60px;
+  height:60px;
+
+  border-radius:50%;
+}
