@@ -1,12 +1,20 @@
 import { supabase }
 from './supabase.js'
 
+const productList =
+document.getElementById(
+  'productList'
+)
+
 const searchInput =
 document.getElementById(
   'searchInput'
 )
 
 let allProducts = []
+
+
+// GET PRODUCTS
 
 async function getProducts(){
 
@@ -17,7 +25,11 @@ async function getProducts(){
   .from('products')
   .select('*')
 
-  if(!error){
+  if(error){
+
+    console.log(error)
+
+  }else{
 
     allProducts = data
 
@@ -26,6 +38,9 @@ async function getProducts(){
   }
 
 }
+
+
+// RENDER PRODUCTS
 
 function renderProducts(data){
 
@@ -37,7 +52,8 @@ function renderProducts(data){
 
     <div class="product-card">
 
-      <img src="${product.image}">
+      <img
+      src="${product.image}">
 
       <div class="product-content">
 
@@ -59,17 +75,33 @@ function renderProducts(data){
 
         </p>
 
-        <button
-        onclick='addToCart(
-        "${product.name}",
-        "${product.price}",
-        "${product.image}"
-        )'
-        class="btn primary full-btn">
+        <div class="product-buttons">
 
-          Add To Cart
+          <button
+          onclick='addToCart(
+          "${product.name}",
+          "${product.price}",
+          "${product.image}"
+          )'
+          class="btn primary full-btn">
 
-        </button>
+            Add To Cart
+
+          </button>
+
+          <button
+          onclick='addWishlist({
+          name:`${product.name}`,
+          price:`${product.price}`,
+          image:`${product.image}`
+          })'
+          class="icon-btn">
+
+            <i class="fa-solid fa-heart"></i>
+
+          </button>
+
+        </div>
 
       </div>
 
@@ -80,28 +112,37 @@ function renderProducts(data){
 
 }
 
-searchInput.addEventListener(
-  'keyup',
-  ()=>{
 
-    const value =
-    searchInput.value.toLowerCase()
+// SEARCH PRODUCT
 
-    const filtered =
-    allProducts.filter(product=>
+if(searchInput){
 
-      product.name
+  searchInput.addEventListener(
+    'keyup',
+    ()=>{
+
+      const value =
+      searchInput.value
       .toLowerCase()
-      .includes(value)
 
-    )
+      const filtered =
+      allProducts.filter(product=>
 
-    renderProducts(filtered)
+        product.name
+        .toLowerCase()
+        .includes(value)
 
-  }
-)
+      )
 
-getProducts()
+      renderProducts(filtered)
+
+    }
+  )
+
+}
+
+
+// ADD TO CART
 
 window.addToCart =
 function(name,price,image){
@@ -122,8 +163,39 @@ function(name,price,image){
     JSON.stringify(cart)
   )
 
-  alert(
+  showNotification(
     'Added to cart 🔥'
   )
 
 }
+
+
+// WISHLIST
+
+window.addWishlist =
+function(product){
+
+  let wishlist =
+  JSON.parse(
+    localStorage.getItem(
+      'wishlist'
+    )
+  ) || []
+
+  wishlist.push(product)
+
+  localStorage.setItem(
+    'wishlist',
+    JSON.stringify(wishlist)
+  )
+
+  showNotification(
+    'Added to wishlist ❤️'
+  )
+
+}
+
+
+// START
+
+getProducts()
