@@ -6,6 +6,9 @@ document.getElementById(
   'productList'
 )
 
+
+// GET PRODUCTS
+
 async function getProducts(){
 
   const {
@@ -14,9 +17,6 @@ async function getProducts(){
   } = await supabase
   .from('products')
   .select('*')
-  .order('id',{
-    ascending:false
-  })
 
   if(error){
 
@@ -50,7 +50,12 @@ async function getProducts(){
           </p>
 
           <button
-          class="btn primary full-btn">
+          class="btn primary full-btn"
+          onclick="addToCart(
+          '${product.name}',
+          '${product.price}',
+          '${product.image}'
+          )">
 
             Add To Cart
 
@@ -66,5 +71,42 @@ async function getProducts(){
   }
 
 }
+
+
+// GLOBAL FUNCTION
+
+window.addToCart =
+function(
+  name,
+  price,
+  image
+){
+
+  let cart =
+  JSON.parse(
+    localStorage.getItem(
+      'cart'
+    )
+  ) || []
+
+  cart.push({
+    name,
+    price,
+    image
+  })
+
+  localStorage.setItem(
+    'cart',
+    JSON.stringify(cart)
+  )
+
+  alert(
+    'Added to cart 🔥'
+  )
+
+  console.log(cart)
+
+}
+
 
 getProducts()
