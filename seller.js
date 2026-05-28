@@ -6,59 +6,73 @@ document.getElementById(
   'uploadForm'
 )
 
-uploadForm.addEventListener(
-  'submit',
-  async(e)=>{
+if(uploadForm){
 
-    e.preventDefault()
+  uploadForm.addEventListener(
+    'submit',
+    async(e)=>{
 
-    const name =
-    document.getElementById(
-      'name'
-    ).value
+      e.preventDefault()
 
-    const price =
-    document.getElementById(
-      'price'
-    ).value
+      const name =
+      document.getElementById(
+        'name'
+      ).value
 
-    const image =
-    document.getElementById(
-      'image'
-    ).value
+      const price =
+      document.getElementById(
+        'price'
+      ).value
 
-    const {
-      data,
-      error
-    } = await supabase
-    .from('products')
-    .insert([
-      {
-        name,
-        price,
-        image
+      const image =
+      document.getElementById(
+        'image'
+      ).value
+
+      if(
+        !name ||
+        !price ||
+        !image
+      ){
+
+        alert(
+          'Isi semua data'
+        )
+
+        return
       }
-    ])
-    .select()
 
-    if(error){
+      const {
+        error
+      } = await supabase
+      .from('products')
+      .insert([
+        {
+          name,
+          price,
+          image
+        }
+      ])
 
-      console.log(error)
+      if(error){
 
-      alert(
-        'Upload gagal ❌'
-      )
+        console.log(error)
 
-    }else{
+        alert(
+          'Upload gagal ❌'
+        )
 
-      alert(
-        'Produk berhasil upload 🔥'
-      )
+      }else{
 
-      window.location.href =
-      'products.html'
+        alert(
+          'Produk berhasil upload 🔥'
+        )
+
+        uploadForm.reset()
+
+      }
 
     }
+  )
 
-  }
-)
+}
