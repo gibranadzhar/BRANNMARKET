@@ -1,44 +1,298 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
+
   <title>Brann Market</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet"
+  href="style.css">
+
 </head>
 <body>
 
-  <header class="navbar">
-    <h1>Brann Market</h1>
+  <!-- NAVBAR -->
 
-    <div>
+  <header class="navbar">
+
+    <div class="logo">
+
+      Brann Market
+
+    </div>
+
+    <nav>
+
+      <a href="#">
+        Home
+      </a>
+
+      <a href="products.html">
+        Products
+      </a>
+
+      <a href="#">
+        Seller
+      </a>
+
+      <a href="#">
+        Contact
+      </a>
+
+    </nav>
+
+    <div class="nav-right">
+
+      <button
+      id="themeToggle"
+      class="theme-btn">
+
+        🌙
+
+      </button>
+
       <a href="login.html">
-        <button class="btn">Login</button>
+
+        <button class="btn">
+
+          Login
+
+        </button>
+
       </a>
 
       <a href="register.html">
-        <button class="btn primary">Register</button>
+
+        <button class="btn primary">
+
+          Register
+
+        </button>
+
       </a>
+
     </div>
+
   </header>
 
+
+  <!-- HERO -->
+
   <section class="hero">
-    <h1>
-      Modern Marketplace
-    </h1>
 
-    <p>
-      Marketplace multi seller modern menggunakan Vercel + Supabase.
-    </p>
+    <div class="hero-left">
 
-    <a href="dashboard.html">
-      <button class="btn primary">
-        Open Dashboard
-      </button>
-    </a>
+      <span class="badge">
+
+        Multi Vendor Marketplace
+
+      </span>
+
+      <h1>
+
+        Modern Marketplace
+        For Digital Seller
+
+      </h1>
+
+      <p>
+
+        Marketplace modern dengan
+        seller panel, dashboard,
+        QRIS profile, realtime chat,
+        dan dark mode system.
+
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="products.html">
+
+          <button class="btn primary">
+
+            Explore Products
+
+          </button>
+
+        </a>
+
+        <a href="dashboard.html">
+
+          <button class="btn">
+
+            Seller Dashboard
+
+          </button>
+
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="hero-right">
+
+      <div class="hero-card">
+
+        <h3>Total Seller</h3>
+
+        <h1>1,240+</h1>
+
+      </div>
+
+      <div class="hero-card">
+
+        <h3>Total Products</h3>
+
+        <h1>15,000+</h1>
+
+      </div>
+
+      <div class="hero-card">
+
+        <h3>Realtime Orders</h3>
+
+        <h1>24/7</h1>
+
+      </div>
+
+    </div>
+
   </section>
 
+
+  <!-- FEATURES -->
+
+  <section class="features">
+
+    <div class="feature-card">
+
+      <h2>Seller System</h2>
+
+      <p>
+        Seller dapat upload produk,
+        QRIS, dan kelola toko.
+      </p>
+
+    </div>
+
+    <div class="feature-card">
+
+      <h2>Realtime Chat</h2>
+
+      <p>
+        Chat realtime buyer dan seller.
+      </p>
+
+    </div>
+
+    <div class="feature-card">
+
+      <h2>Secure Login</h2>
+
+      <p>
+        Session login aktif
+        dan tidak logout otomatis.
+      </p>
+
+    </div>
+
+    <div class="feature-card">
+
+      <h2>Modern Dashboard</h2>
+
+      <p>
+        Dashboard owner dan seller
+        modern seperti startup.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRODUCT PREVIEW -->
+
+  <section class="preview-products">
+
+    <h1>Popular Products</h1>
+
+    <div class="preview-grid">
+
+      <div class="product-card">
+
+        <img
+        src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop">
+
+        <h3>Smart Watch</h3>
+
+        <p>Rp 799.000</p>
+
+        <button class="btn primary">
+
+          Buy Now
+
+        </button>
+
+      </div>
+
+      <div class="product-card">
+
+        <img
+        src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200&auto=format&fit=crop">
+
+        <h3>Gaming Headset</h3>
+
+        <p>Rp 499.000</p>
+
+        <button class="btn primary">
+
+          Buy Now
+
+        </button>
+
+      </div>
+
+      <div class="product-card">
+
+        <img
+        src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200&auto=format&fit=crop">
+
+        <h3>Premium Hoodie</h3>
+
+        <p>Rp 299.000</p>
+
+        <button class="btn primary">
+
+          Buy Now
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <h2>Brann Market</h2>
+
+    <p>
+      Marketplace modern powered by
+      Vercel + Supabase
+    </p>
+
+  </footer>
+
   <script src="script.js"></script>
+
 </body>
 </html>
