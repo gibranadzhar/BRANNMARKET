@@ -166,3 +166,137 @@ body{
   color:#aaa;
   margin-bottom:20px;
 }
+
+.logo{
+  font-size:28px;
+  font-weight:bold;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  margin:0 12px;
+}
+
+.nav-right{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.theme-btn{
+  width:45px;
+  height:45px;
+  border:none;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.hero{
+  padding:100px 8%;
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(300px,1fr));
+
+  gap:50px;
+
+  align-items:center;
+}
+
+.hero-left h1{
+  font-size:70px;
+  margin:20px 0;
+}
+
+.hero-left p{
+  color:#aaa;
+  line-height:1.8;
+  margin-bottom:30px;
+}
+
+.badge{
+  padding:10px 18px;
+
+  background:
+  rgba(124,58,237,0.2);
+
+  border-radius:20px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:15px;
+}
+
+.hero-right{
+  display:grid;
+  gap:20px;
+}
+
+.hero-card{
+  background:
+  rgba(255,255,255,0.05);
+
+  padding:30px;
+
+  border-radius:20px;
+}
+
+.features{
+  padding:80px 8%;
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(250px,1fr));
+
+  gap:30px;
+}
+
+.feature-card{
+  background:
+  rgba(255,255,255,0.05);
+
+  padding:30px;
+
+  border-radius:20px;
+}
+
+.feature-card h2{
+  margin-bottom:15px;
+}
+
+.feature-card p{
+  color:#aaa;
+}
+
+.preview-products{
+  padding:80px 8%;
+}
+
+.preview-products h1{
+  margin-bottom:40px;
+  font-size:50px;
+}
+
+.preview-grid{
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(280px,1fr));
+
+  gap:30px;
+}
+
+footer{
+  padding:60px 8%;
+  text-align:center;
+  color:#aaa;
+}
+
+.light-mode{
+  background:white;
+  color:black;
+}
