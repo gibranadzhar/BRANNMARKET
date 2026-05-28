@@ -4,20 +4,37 @@
 
   <meta charset="UTF-8">
 
-  <meta name="viewport"
+  <meta
+  name="viewport"
   content="width=device-width, initial-scale=1.0">
 
   <title>Brann Market</title>
 
-  <link rel="stylesheet"
+  <link
+  rel="stylesheet"
   href="style.css">
 
   <link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 </head>
 <body>
+
+  <!-- TOP BAR -->
+
+  <div class="topbar">
+
+    <p>
+      🎁 Promo spesial diskon hingga 50%
+    </p>
+
+    <button>
+      Lihat Promo
+    </button>
+
+  </div>
+
 
   <!-- NAVBAR -->
 
@@ -25,13 +42,17 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
     <div class="logo">
 
-      Brann Market
+      <i class="fa-solid fa-bag-shopping"></i>
+
+      <span>
+        BrannMarket
+      </span>
 
     </div>
 
     <nav>
 
-      <a href="#">
+      <a href="#" class="active">
         Home
       </a>
 
@@ -44,6 +65,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
       </a>
 
       <a href="#">
+        Categories
+      </a>
+
+      <a href="#">
         Contact
       </a>
 
@@ -52,10 +77,24 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     <div class="nav-right">
 
       <button
-      id="themeToggle"
-      class="theme-btn">
+      class="icon-btn">
 
-        🌙
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+      </button>
+
+      <button
+      class="icon-btn">
+
+        <i class="fa-solid fa-cart-shopping"></i>
+
+      </button>
+
+      <button
+      id="themeToggle"
+      class="icon-btn">
+
+        <i class="fa-solid fa-moon"></i>
 
       </button>
 
@@ -90,16 +129,23 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
     <div class="hero-left">
 
-      <span class="badge">
+      <div class="badge">
 
-        Multi Vendor Marketplace
+        🔥 #1 Marketplace Modern
 
-      </span>
+      </div>
 
       <h1>
 
-        Modern Marketplace
-        For Digital Seller
+        Modern
+        Marketplace
+        For
+
+        <span class="gradient-text">
+
+          Digital Seller
+
+        </span>
 
       </h1>
 
@@ -108,59 +154,104 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         Marketplace modern dengan
         seller panel, dashboard,
         QRIS profile, realtime chat,
-        dan dark mode system.
+        dan sistem keamanan terbaik.
 
       </p>
 
       <div class="hero-buttons">
 
-        <a href="products.html">
+        <button class="btn primary big-btn">
 
-          <button class="btn primary">
+          <i class="fa-solid fa-bag-shopping"></i>
 
-            Explore Products
+          Explore Products
 
-          </button>
+        </button>
 
-        </a>
+        <button class="btn outline big-btn">
 
-        <a href="dashboard.html">
+          <i class="fa-solid fa-chart-simple"></i>
 
-          <button class="btn">
+          Seller Dashboard
 
-            Seller Dashboard
+        </button>
 
-          </button>
+      </div>
 
-        </a>
+      <div class="hero-users">
+
+        <img
+        src="https://i.pravatar.cc/40?img=1">
+
+        <img
+        src="https://i.pravatar.cc/40?img=2">
+
+        <img
+        src="https://i.pravatar.cc/40?img=3">
+
+        <img
+        src="https://i.pravatar.cc/40?img=4">
+
+        <div>
+
+          <h4>
+            1,240+ Seller aktif
+          </h4>
+
+          <p>
+            100% aman & terpercaya
+          </p>
+
+        </div>
 
       </div>
 
     </div>
 
+
     <div class="hero-right">
 
-      <div class="hero-card">
+      <div class="hero-grid">
 
-        <h3>Total Seller</h3>
+        <div class="hero-card">
 
-        <h1>1,240+</h1>
+          <i class="fa-solid fa-users"></i>
 
-      </div>
+          <h2>1,240+</h2>
 
-      <div class="hero-card">
+          <p>Total Seller</p>
 
-        <h3>Total Products</h3>
+        </div>
 
-        <h1>15,000+</h1>
+        <div class="hero-card">
 
-      </div>
+          <i class="fa-solid fa-box"></i>
 
-      <div class="hero-card">
+          <h2>15,000+</h2>
 
-        <h3>Realtime Orders</h3>
+          <p>Total Products</p>
 
-        <h1>24/7</h1>
+        </div>
+
+        <div class="hero-card">
+
+          <i class="fa-solid fa-cart-shopping"></i>
+
+          <h2>24/7</h2>
+
+          <p>Realtime Orders</p>
+
+        </div>
+
+        <div class="hero-card">
+
+          <i class="fa-solid fa-shield-halved"></i>
+
+          <h2>100%</h2>
+
+          <p>Protected</p>
+
+        </div>
 
       </div>
 
@@ -175,72 +266,121 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
     <div class="feature-card">
 
-      <h2>Seller System</h2>
+      <i class="fa-solid fa-store"></i>
 
-      <p>
-        Seller dapat upload produk,
-        QRIS, dan kelola toko.
-      </p>
+      <div>
 
-    </div>
+        <h3>Seller System</h3>
 
-    <div class="feature-card">
+        <p>
+          Seller upload produk & QRIS
+        </p>
 
-      <h2>Realtime Chat</h2>
-
-      <p>
-        Chat realtime buyer dan seller.
-      </p>
+      </div>
 
     </div>
 
     <div class="feature-card">
 
-      <h2>Secure Login</h2>
+      <i class="fa-solid fa-comments"></i>
 
-      <p>
-        Session login aktif
-        dan tidak logout otomatis.
-      </p>
+      <div>
+
+        <h3>Realtime Chat</h3>
+
+        <p>
+          Chat realtime buyer & seller
+        </p>
+
+      </div>
 
     </div>
 
     <div class="feature-card">
 
-      <h2>Modern Dashboard</h2>
+      <i class="fa-solid fa-shield"></i>
 
-      <p>
-        Dashboard owner dan seller
-        modern seperti startup.
-      </p>
+      <div>
+
+        <h3>Secure Login</h3>
+
+        <p>
+          Session aman & stabil
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="feature-card">
+
+      <i class="fa-solid fa-chart-line"></i>
+
+      <div>
+
+        <h3>Modern Dashboard</h3>
+
+        <p>
+          Dashboard premium startup
+        </p>
+
+      </div>
 
     </div>
 
   </section>
 
 
-  <!-- PRODUCT PREVIEW -->
+  <!-- PRODUCTS -->
 
-  <section class="preview-products">
+  <section class="products">
 
-    <h1>Popular Products</h1>
+    <div class="section-header">
 
-    <div class="preview-grid">
+      <h1>
+        🔥 Popular Products
+      </h1>
+
+      <button class="btn outline">
+
+        View All Products
+
+      </button>
+
+    </div>
+
+    <div class="product-grid">
 
       <div class="product-card">
 
         <img
-        src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop">
+        src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&w=1200&auto=format&fit=crop">
 
-        <h3>Smart Watch</h3>
+        <div class="product-content">
 
-        <p>Rp 799.000</p>
+          <span class="category">
 
-        <button class="btn primary">
+            Elektronik
 
-          Buy Now
+          </span>
 
-        </button>
+          <h3>
+            Smart Watch Series 9
+          </h3>
+
+          <p class="price">
+
+            Rp 799.000
+
+          </p>
+
+          <button class="btn primary full-btn">
+
+            Add To Cart
+
+          </button>
+
+        </div>
 
       </div>
 
@@ -249,32 +389,64 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         <img
         src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200&auto=format&fit=crop">
 
-        <h3>Gaming Headset</h3>
+        <div class="product-content">
 
-        <p>Rp 499.000</p>
+          <span class="category">
 
-        <button class="btn primary">
+            Gaming
 
-          Buy Now
+          </span>
 
-        </button>
+          <h3>
+            Gaming Headset RGB
+          </h3>
+
+          <p class="price">
+
+            Rp 499.000
+
+          </p>
+
+          <button class="btn primary full-btn">
+
+            Add To Cart
+
+          </button>
+
+        </div>
 
       </div>
 
       <div class="product-card">
 
         <img
-        src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200&auto=format&fit=crop">
+        src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=1200&auto=format&fit=crop">
 
-        <h3>Premium Hoodie</h3>
+        <div class="product-content">
 
-        <p>Rp 299.000</p>
+          <span class="category">
 
-        <button class="btn primary">
+            Fashion
 
-          Buy Now
+          </span>
 
-        </button>
+          <h3>
+            Premium Hoodie
+          </h3>
+
+          <p class="price">
+
+            Rp 299.000
+
+          </p>
+
+          <button class="btn primary full-btn">
+
+            Add To Cart
+
+          </button>
+
+        </div>
 
       </div>
 
@@ -287,11 +459,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
   <footer>
 
-    <h2>Brann Market</h2>
+    <h2>BrannMarket</h2>
 
     <p>
-      Marketplace modern powered by
-      Vercel + Supabase
+      Marketplace modern untuk semua
+      kebutuhan digital.
     </p>
 
   </footer>
